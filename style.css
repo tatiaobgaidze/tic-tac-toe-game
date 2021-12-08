@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.board {
+    width: 100vw;
+    height: 70vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+    background-color: aquamarine;
+    cursor: pointer;
+}
+
+.cell {
+    border: 1px solid #000;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+    border-top: none;
+}
+
+.cell:first-child,
+.cell:nth-child(4),
+.cell:nth-child(7) {
+    border-left: none;
+}
+
+.cell:nth-child(3),
+.cell:nth-child(6),
+.cell:nth-child(9) {
+    border-right: none;
+}
+
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9) {
+    border-bottom: none;
+}
+
+.cell.x,
+.cell.circle {
+    cursor: not-allowed;
+}
+
+
+/* .cell.x::before,
+.cell.x::after,
+.cell.circle::before {
+    background-color: black;
+} */
+
+
+/* .board.x .cell:not(.x):not(.circle):hover::before,
+.board.x .cell:not(.x):not(.circle):hover::after,
+.board.circle .cell:not(.x):not(.circle):hover::before {
+    background-color: lightgray;
+} */
+
+
+/* X */
+
+.cell.x::before,
+.board.x .cell:not(.x):not(.circle):hover:before {
+    content: '';
+    width: 10px;
+    height: 70px;
+    background-color: #000;
+    transform: rotate(50deg);
+}
+
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover:after {
+    content: '';
+    width: 10px;
+    height: 70px;
+    background-color: #000;
+    transform: rotate(313deg);
+}
+
+.board.x.cell:hover:not(.x):not(.circle):before,
+.board.x .cell:not(.x):not(.circle):hover:before {
+    content: '';
+    width: 10px;
+    height: 70px;
+    background-color: rgba(87, 86, 86, 0.473);
+    transform: rotate(50deg);
+}
+
+.board.x.cell:hover:not(.x):not(.circle):after,
+.board.x .cell:not(.x):not(.circle):hover:after {
+    content: '';
+    width: 10px;
+    height: 70px;
+    background-color: rgba(87, 86, 86, 0.473);
+    transform: rotate(313deg);
+}
+
+
+/* წრე */
+
+.cell.circle::before,
+.board.O .cell:not(.x):not(.circle):hover::before {
+    content: '';
+    width: 70px;
+    height: 70px;
+    background-color: #000;
+    border-radius: 50%;
+    position: relative;
+}
+
+.cell.circle::after,
+.board.O .cell:not(.x):not(.circle):hover::after {
+    content: '';
+    width: 50px;
+    height: 50px;
+    background-color: aquamarine;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.board.O.cell:hover:not(.circle):not(.x):before,
+.board.O .cell:not(.x):not(.circle):hover:before {
+    content: '';
+    width: 70px;
+    height: 70px;
+    background-color: rgba(87, 86, 86, 0.473);
+    border-radius: 50%;
+    /* position: relative; */
+}
+
+.board.O.cell:hover:not(.circle):not(.x):after,
+.board.O .cell:not(.x):not(.circle):hover:after {
+    content: '';
+    width: 50px;
+    height: 50px;
+    background-color: aquamarine;
+    border-radius: 50%;
+    /* position: absolute; */
+}
+
+.winning-message {
+    padding-top: 50px;
+}
